@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Dogs - Sip Shelter</title>
+  <title>All Dogs | Sip Shelter</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="dogs-page">
-  <header>
-    <nav class="navbar">
+  <header class="site-header small-header">
+    <nav class="navbar" aria-label="Main navigation">
       <a href="index.html" class="logo">Sip Shelter</a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
 
       <ul class="navbar-links">
         <li><a href="index.html">Home</a></li>
@@ -26,75 +27,79 @@
 
   <main>
     <section class="all-dogs-section">
-      <div class="section-heading">
-        <div>
-          <h1>All Dogs</h1>
-          <p>Meet all of our dogs currently waiting for a loving home.</p>
-        </div>
+      <div class="database-heading">
+        <h1>Find the Right Dog</h1>
+        <p>
+          Filter by personality, age, and search terms to discover dogs who match your lifestyle.
+        </p>
       </div>
 
-      <div class="dogs-grid">
-        <figure class="dog-card">
-          <img src="https://placedog.net/400/196?id=57" alt="Buddy, a friendly golden dog">
+      <div class="database-layout">
+        <aside class="filter-panel" aria-label="Dog filters">
+          <div class="filter-block">
+            <label for="dog-search">Search</label>
+            <input id="dog-search" type="search" placeholder="Name, breed, personality..." data-dog-search>
+          </div>
 
-          <figcaption>
-            <div class="dog-card-header">
-              <h3>Buddy</h3>
-              <span>3 years</span>
-            </div>
+          <div class="filter-block">
+            <label for="age-filter">Age</label>
+            <select id="age-filter" data-age-filter>
+              <option value="all">All ages</option>
+              <option value="young">Young, 0–2 years</option>
+              <option value="adult">Adult, 3–6 years</option>
+              <option value="senior">Senior, 7+ years</option>
+            </select>
+          </div>
 
-            <p>Golden Retriever mix</p>
-            <p class="dog-personality">Friendly · Playful · Loyal</p>
-          </figcaption>
-        </figure>
+          <div class="filter-block">
+            <div class="filter-label">Personality</div>
+            <div class="chip-list" data-personality-filters></div>
+          </div>
 
-        <figure class="dog-card">
-          <img src="https://placedog.net/400/194?id=73" alt="Luna, a calm beagle mix">
+          <button type="button" class="clear-button" data-clear-filters>Clear filters</button>
+        </aside>
 
-          <figcaption>
-            <div class="dog-card-header">
-              <h3>Luna</h3>
-              <span>2 years</span>
-            </div>
+        <div class="database-results">
+          <div class="results-bar">
+            <p><strong data-results-count>0</strong> dogs found</p>
+            <p><strong data-favorites-count>0</strong> favorited</p>
+          </div>
 
-            <p>Beagle mix</p>
-            <p class="dog-personality">Calm · Curious · Gentle</p>
-          </figcaption>
-        </figure>
+          <div class="dogs-grid" data-dogs-grid></div>
 
-        <figure class="dog-card">
-          <img src="https://placedog.net/400/133?id=223" alt="Max, an energetic border collie mix">
-
-          <figcaption>
-            <div class="dog-card-header">
-              <h3>Max</h3>
-              <span>4 years</span>
-            </div>
-
-            <p>Border Collie mix</p>
-            <p class="dog-personality">Smart · Active · Loving</p>
-          </figcaption>
-        </figure>
-
-        <figure class="dog-card">
-          <img src="https://placedog.net/400/278?id=218" alt="Daisy, a gentle labrador mix">
-
-          <figcaption>
-            <div class="dog-card-header">
-              <h3>Daisy</h3>
-              <span>1 year</span>
-            </div>
-
-            <p>Labrador mix</p>
-            <p class="dog-personality">Sweet · Social · Happy</p>
-          </figcaption>
-        </figure>
+          <p class="empty-state" data-empty-state hidden>
+            No dogs match your filters yet. Try removing one personality or clearing the search.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2024 Dog Adoption Agency.</p>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">Sip Shelter</a>
+        <p>Helping dogs find safe, loving homes one adoption at a time.</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="dogs.html">Find a Pet</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>hello@sipshelter.com</p>
+        <p>Mon–Sat, 9:00–17:00</p>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2024 Sip Shelter. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
